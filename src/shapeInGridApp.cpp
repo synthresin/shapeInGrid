@@ -35,9 +35,9 @@ class shapeInGridApp : public AppBasic {
     gl::Texture     mTex;
 };
 
-gl::Texture renderSvgToTexture(svg::DocRef doc, Vec2f size)
+gl::Texture renderSvgToTexture( svg::DocRef doc )
 {
-    cairo::SurfaceImage srf(size.x, size.y, true);
+    cairo::SurfaceImage srf(doc->getWidth(), doc->getHeight() , true);
     cairo::Context ctx( srf );
     ctx.render( *doc );
     srf.flush();
@@ -56,7 +56,7 @@ void shapeInGridApp::setup()
     mGridSizeX = (float)getWindowWidth()/ GRID_NUM;
     mGridSizeY = (float)getWindowHeight()/ GRID_NUM;
 
-    mTex = renderSvgToTexture( mDoc, Vec2f(mGridSizeX, mGridSizeY) );
+    mTex = renderSvgToTexture( mDoc );
     printf("xsize : %f, ysize : %f" , mGridSizeX, mGridSizeY);
     //gl::clear(ColorA(0.85,0.92,0.88));
     gl::clear(ColorA(1,1,1));
@@ -87,7 +87,6 @@ void shapeInGridApp::redraw()
 {
 	//gl::clear(ColorA(0.85,0.92,0.88));
     gl::clear(ColorA(1,1,1));
-    gl::draw(*mDoc);
     float multiplier = 100.8746f;
     for(int yGrid = 0; yGrid < GRID_NUM; yGrid++) {
         for (int xGrid = 0; xGrid < GRID_NUM; xGrid++) {
@@ -109,6 +108,7 @@ void shapeInGridApp::redraw()
                 gl::color( Color::white() );
                 gl::draw( mTex, Rectf( Vec2f(xInit, yInit), Vec2f(xInit + mGridSizeX, yInit + mGridSizeY) ) );
             }
+            
             switch (gridMode) {
                 case 0:
                     glLineWidth(7.0f);
