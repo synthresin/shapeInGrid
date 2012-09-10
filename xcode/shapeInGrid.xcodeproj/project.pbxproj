@@ -23,6 +23,8 @@
 		C62E281B15FC42D10061051A /* logoFrag1.svg in Resources */ = {isa = PBXBuildFile; fileRef = C62E281715FC42D10061051A /* logoFrag1.svg */; };
 		C62E281C15FC42D10061051A /* logoFrag2-cef.svg in Resources */ = {isa = PBXBuildFile; fileRef = C62E281815FC42D10061051A /* logoFrag2-cef.svg */; };
 		C62E281D15FC42D10061051A /* logoFrag2.svg in Resources */ = {isa = PBXBuildFile; fileRef = C62E281915FC42D10061051A /* logoFrag2.svg */; };
+		C62E282415FC78AA0061051A /* logoFrag3.svg in Resources */ = {isa = PBXBuildFile; fileRef = C62E282215FC78AA0061051A /* logoFrag3.svg */; };
+		C62E282515FC78AA0061051A /* logoFrag4.svg in Resources */ = {isa = PBXBuildFile; fileRef = C62E282315FC78AA0061051A /* logoFrag4.svg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		C62E281715FC42D10061051A /* logoFrag1.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = logoFrag1.svg; path = ../resources/logoFrag1.svg; sourceTree = "<group>"; };
 		C62E281815FC42D10061051A /* logoFrag2-cef.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "logoFrag2-cef.svg"; path = "../resources/logoFrag2-cef.svg"; sourceTree = "<group>"; };
 		C62E281915FC42D10061051A /* logoFrag2.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = logoFrag2.svg; path = ../resources/logoFrag2.svg; sourceTree = "<group>"; };
+		C62E282215FC78AA0061051A /* logoFrag3.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = logoFrag3.svg; path = ../resources/logoFrag3.svg; sourceTree = "<group>"; };
+		C62E282315FC78AA0061051A /* logoFrag4.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = logoFrag4.svg; path = ../resources/logoFrag4.svg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C62E282215FC78AA0061051A /* logoFrag3.svg */,
+				C62E282315FC78AA0061051A /* logoFrag4.svg */,
 				C62E281615FC42D10061051A /* logoFrag1-cef.svg */,
 				C62E281715FC42D10061051A /* logoFrag1.svg */,
 				C62E281815FC42D10061051A /* logoFrag2-cef.svg */,
@@ -208,6 +214,8 @@
 				C62E281B15FC42D10061051A /* logoFrag1.svg in Resources */,
 				C62E281C15FC42D10061051A /* logoFrag2-cef.svg in Resources */,
 				C62E281D15FC42D10061051A /* logoFrag2.svg in Resources */,
+				C62E282415FC78AA0061051A /* logoFrag3.svg in Resources */,
+				C62E282515FC78AA0061051A /* logoFrag4.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

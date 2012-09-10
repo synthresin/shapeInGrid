@@ -18,21 +18,37 @@ class shapeInGridApp : public AppBasic {
 	void setup();
 	void mouseDown( MouseEvent event );
 	void mouseUp (MouseEvent event);
+    void mouseMove( MouseEvent event );
 	void update();
 	void draw();
     void redraw();
     
-    float   mGridSizeX;
-    float   mGridSizeY;
-    Perlin  mPerlin;
-    Rand    mRand;
+    float           mGridSizeX;
+    float           mGridSizeY;
+    Perlin          mPerlin;
+    Rand            mRand;
     
-    bool    mDraw;
+    bool            mDraw;
     
     // additional
     
     svg::DocRef     mDoc;
+    svg::DocRef     mDoc2;
+    svg::DocRef     mDoc3;
+    svg::DocRef     mDoc4;
+    
     gl::Texture     mTex;
+    gl::Texture     mTex2;
+    gl::Texture     mTex3;
+    gl::Texture     mTex4;
+    
+    Vec2f           mMousePos;
+    
+    gl::Texture     currentTexture;
+    
+    //
+    
+    int mTexVal[GRID_NUM][GRID_NUM];
 };
 
 gl::Texture renderSvgToTexture( svg::DocRef doc )
@@ -50,6 +66,9 @@ void shapeInGridApp::setup()
     setWindowSize(600, 600);
     gl::enableAlphaBlending();
     mDoc = svg::Doc::create( loadResource("logoFrag1.svg") );
+    mDoc2 = svg::Doc::create( loadResource("logoFrag2.svg") );
+    mDoc3 = svg::Doc::create( loadResource("logoFrag3.svg") );
+    mDoc4 = svg::Doc::create( loadResource("logoFrag4.svg") );
     
     
     
@@ -57,9 +76,20 @@ void shapeInGridApp::setup()
     mGridSizeY = (float)getWindowHeight()/ GRID_NUM;
 
     mTex = renderSvgToTexture( mDoc );
+    mTex2 = renderSvgToTexture( mDoc2 );
+    mTex3 = renderSvgToTexture( mDoc3 );
+    mTex4 = renderSvgToTexture( mDoc4 );
+    
+    
     printf("xsize : %f, ysize : %f" , mGridSizeX, mGridSizeY);
     //gl::clear(ColorA(0.85,0.92,0.88));
     gl::clear(ColorA(1,1,1));
+    
+    for(int yGrid = 0; yGrid < GRID_NUM; yGrid++) {
+        for (int xGrid = 0; xGrid < GRID_NUM; xGrid++) {
+            mTexVal[xGrid][yGrid] = Rand::randInt(0, 4);
+        }
+    }
 }
 
 void shapeInGridApp::mouseDown( MouseEvent event )
@@ -72,13 +102,23 @@ void shapeInGridApp::mouseUp( MouseEvent event )
     mDraw = false;
 }
 
+void shapeInGridApp::mouseMove( MouseEvent event )
+{
+    mMousePos = event.getPos();
+}
+
 void shapeInGridApp::update()
 {
+//    for(int yGrid = 0; yGrid < GRID_NUM; yGrid++) {
+//        for (int xGrid = 0; xGrid < GRID_NUM; xGrid++) {
+//        mTexVal[xGrid][yGrid] = Rand::randInt(0, 4);
+//        }
+//    }
 }
 
 void shapeInGridApp::draw()
 {
-	if (mDraw) {
+	if (true) {
         redraw();
     }
 }
@@ -87,47 +127,54 @@ void shapeInGridApp::redraw()
 {
 	//gl::clear(ColorA(0.85,0.92,0.88));
     gl::clear(ColorA(1,1,1));
-    float multiplier = 100.8746f;
     for(int yGrid = 0; yGrid < GRID_NUM; yGrid++) {
         for (int xGrid = 0; xGrid < GRID_NUM; xGrid++) {
             
-            int gridMode;
-            //int gridMode = mRand.nextInt(0,3);
-            float noise =( mPerlin.fBm( Vec2f(xGrid * multiplier, yGrid * multiplier)) + 1.0f )  /2;
-            if(noise >= 0 && noise < 0.43f) {
-                gridMode = 0;
-            } else if(noise >= 0.43f && noise < 0.48f) {
-                gridMode = 1;
-            } else gridMode = 2;
-            float opacity = mRand.nextFloat();
+
             
             float xInit = mGridSizeX * xGrid;
             float yInit = mGridSizeY * yGrid;
             
+            
             if( mTex ) {
+                Vec2f center = Vec2f(xInit + mGridSizeX /2 ,yInit + mGridSizeY / 2 );
+                
+                Vec2f dirVec = mMousePos - center;
+                
+                float angle = toDegrees(atan2(dirVec.y, dirVec.x)) + 90;
+                
                 gl::color( Color::white() );
-                gl::draw( mTex, Rectf( Vec2f(xInit, yInit), Vec2f(xInit + mGridSizeX, yInit + mGridSizeY) ) );
+                gl::pushMatrices();
+                
+                gl::translate(center);
+                gl::rotate(angle);
+                
+                
+                switch (mTexVal[xGrid][yGrid]) {
+                    case 0:
+                        currentTexture = mTex;
+                        break;
+                        
+                    case 1:
+                        currentTexture = mTex2;
+                        break;
+                        
+                    case 2:
+                        currentTexture = mTex3;
+                        break;
+                        
+                    case 3:
+                        currentTexture = mTex4;
+                        break;
+                        
+                    default:
+                        break;
+                }
+                
+                gl::draw( currentTexture , Rectf( Vec2f(-mGridSizeX/2, -mGridSizeY/2), Vec2f(mGridSizeX/2, mGridSizeY/2) ) );
+                gl::popMatrices();
+                
             }
-            
-            switch (gridMode) {
-                case 0:
-                    glLineWidth(7.0f);
-                    gl::color(0.86f,0.38f,0.47f, opacity);
-                    gl::drawSolidCircle(Vec2f(xInit, yInit), 3.5f);
-                    gl::drawLine(Vec2f(xInit, yInit), Vec2f(xInit + mGridSizeX, yInit + mGridSizeY) );
-                    gl::drawSolidCircle(Vec2f(xInit + mGridSizeX, yInit + mGridSizeY),3.5f);
-                    break;
-                    
-                case 1:
-                    glLineWidth(3.0f);
-                    gl::color(ColorA(0.46f, 0.76f, 0.83f, opacity));
-                    gl::drawLine(Vec2f(xInit+mGridSizeX, yInit), Vec2f(xInit, yInit + mGridSizeY) );
-                    break;
-                    
-                default:
-                    break;
-            }
-            
             
         }
     }
