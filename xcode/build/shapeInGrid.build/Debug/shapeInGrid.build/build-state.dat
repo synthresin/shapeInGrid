@@ -3,13 +3,13 @@ v5
 r1
 cCheck dependencies
 cProcessInfoPlistFile /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/Debug/shapeInGrid.app/Contents/Info.plist Info.plist
-cCpResource CinderApp.icns ./build/Debug/shapeInGrid.app/Contents/Resources/CinderApp.icns
 cCpResource ../resources/logoFrag1-cef.svg ./build/Debug/shapeInGrid.app/Contents/Resources/logoFrag1-cef.svg
+cCpResource CinderApp.icns ./build/Debug/shapeInGrid.app/Contents/Resources/CinderApp.icns
+cCpResource ../resources/logoFrag2-cef.svg ./build/Debug/shapeInGrid.app/Contents/Resources/logoFrag2-cef.svg
+cCpResource ../resources/logoFrag3.svg ./build/Debug/shapeInGrid.app/Contents/Resources/logoFrag3.svg
+cCpResource ../resources/logoFrag2.svg ./build/Debug/shapeInGrid.app/Contents/Resources/logoFrag2.svg
 cCpResource ../resources/logoFrag1.svg ./build/Debug/shapeInGrid.app/Contents/Resources/logoFrag1.svg
 cCpResource ../resources/logoFrag4.svg ./build/Debug/shapeInGrid.app/Contents/Resources/logoFrag4.svg
-cCpResource ../resources/logoFrag2.svg ./build/Debug/shapeInGrid.app/Contents/Resources/logoFrag2.svg
-cCpResource ../resources/logoFrag3.svg ./build/Debug/shapeInGrid.app/Contents/Resources/logoFrag3.svg
-cCpResource ../resources/logoFrag2-cef.svg ./build/Debug/shapeInGrid.app/Contents/Resources/logoFrag2-cef.svg
 cProcessPCH++ /var/folders/rx/5920lwf5777bzm51lrsn28900000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/shapeInGrid_Prefix-ayrhuvuurtdfhtcmbeiatcljfsso/shapeInGrid_Prefix.pch.pth shapeInGrid_Prefix.pch normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
 cCompileC ./build/shapeInGrid.build/Debug/shapeInGrid.build/Objects-normal/i386/shapeInGridApp.o /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/../src/shapeInGridApp.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
 cLd /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/Debug/shapeInGrid.app/Contents/MacOS/shapeInGrid normal i386
@@ -5531,12 +5531,12 @@ t1347174687
 s1281
 
 N/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/../src/shapeInGridApp.cpp
-c0000000050585D4100000000000019C4
-t1347968321
-s6596
+c00000000505864670000000000001708
+t1347970151
+s5896
 
 N/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/Debug/shapeInGrid.app
-t1347968298
+t1347970083
 s102
 
 N/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/Debug/shapeInGrid.app/Contents/Info.plist
@@ -5544,8 +5544,8 @@ t1347156627
 s1232
 
 N/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/Debug/shapeInGrid.app/Contents/MacOS/shapeInGrid
-t1347968298
-s7870588
+t1347970083
+s7902908
 
 N/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/Debug/shapeInGrid.app/Contents/PkgInfo
 t1347156627
@@ -5585,8 +5585,8 @@ t1347156627
 s143
 
 N/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/Objects-normal/i386/shapeInGridApp.o
-t1347968298
-s738664
+t1347970083
+s797600
 
 N/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/CinderApp.icns
 c00000000504BF704000000000001BEB5
@@ -5613,11 +5613,11 @@ r0
 
 CCheck dependencies
 r0
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependenciesaa9ef0c19408b641^d3def0c19408b641^---0#1#0#--18"Check dependencies36"88A17E32-5576-49F9-B8E2-C90783EF47C9-
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies2aac38e89b08b641^5fed38e89b08b641^---0#1#0#--18"Check dependencies36"6F60BC38-79C8-4006-BAE7-DE4F064E38D7-
 
 CCompileC ./build/shapeInGrid.build/Debug/shapeInGrid.build/Objects-normal/i386/shapeInGridApp.o /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/../src/shapeInGridApp.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
-s369661121.980850
-e369661124.524849
+s369662952.273861
+e369662954.955282
 r1
 xCompileC
 x./build/shapeInGrid.build/Debug/shapeInGrid.build/Objects-normal/i386/shapeInGridApp.o
@@ -5626,7 +5626,7 @@ xnormal
 xi386
 xc++
 xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection89"Compile /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/../src/shapeInGridApp.cpp062efbc19408b641^f65c86c49408b641^---0#0#0#-19%DVTDocumentLocation2@97"file://localhost/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/../src/shapeInGridApp.cpp0000000000000000^2904"CompileC ./build/shapeInGrid.build/Debug/shapeInGrid.build/Objects-normal/i386/shapeInGridApp.o ../src/shapeInGridApp.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wno-newline-eof -Wc++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.5 -g -Wno-sign-conversion -iquote /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/shapeInGrid-generated-files.hmap -I/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/shapeInGrid-own-target-headers.hmap -I/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/shapeInGrid-all-target-headers.hmap -iquote /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/shapeInGrid-project-headers.hmap -iquote../../../include -iquote../include -I/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/build/Debug/include -I../../../boost -I/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/DerivedSources/i386 -I/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/DerivedSources -F/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/build/Debug -include /var/folders/rx/5920lwf5777bzm51lrsn28900000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/shapeInGrid_Prefix-ayrhuvuurtdfhtcmbeiatcljfsso/shapeInGrid_Prefix.pch -MMD -MT dependencies -MF /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/Objects-normal/i386/shapeInGridApp.d --serialize-diagnostics /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/Objects-normal/i386/shapeInGridApp.dia -c /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/../src/shapeInGridApp.cpp -o /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/Objects-normal/i386/shapeInGridApp.o36"E3A217CD-073F-43AE-BD92-414F4B1E4BE8-
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection89"Compile /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/../src/shapeInGridApp.cppba3046e89b08b641^868ff4ea9b08b641^---0#0#0#-19%DVTDocumentLocation2@97"file://localhost/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/../src/shapeInGridApp.cpp0000000000000000^2904"CompileC ./build/shapeInGrid.build/Debug/shapeInGrid.build/Objects-normal/i386/shapeInGridApp.o ../src/shapeInGridApp.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wno-newline-eof -Wc++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.5 -g -Wno-sign-conversion -iquote /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/shapeInGrid-generated-files.hmap -I/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/shapeInGrid-own-target-headers.hmap -I/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/shapeInGrid-all-target-headers.hmap -iquote /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/shapeInGrid-project-headers.hmap -iquote../../../include -iquote../include -I/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/build/Debug/include -I../../../boost -I/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/DerivedSources/i386 -I/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/DerivedSources -F/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/build/Debug -include /var/folders/rx/5920lwf5777bzm51lrsn28900000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/shapeInGrid_Prefix-ayrhuvuurtdfhtcmbeiatcljfsso/shapeInGrid_Prefix.pch -MMD -MT dependencies -MF /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/Objects-normal/i386/shapeInGridApp.d --serialize-diagnostics /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/Objects-normal/i386/shapeInGridApp.dia -c /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/../src/shapeInGridApp.cpp -o /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/Objects-normal/i386/shapeInGridApp.o36"8BB0237E-87E4-4CB9-A84C-8E65809B7EB4-
 
 CCpResource ../resources/logoFrag1-cef.svg ./build/Debug/shapeInGrid.app/Contents/Resources/logoFrag1-cef.svg
 s368855047.418513
@@ -5692,14 +5692,14 @@ x./build/Debug/shapeInGrid.app/Contents/Resources/CinderApp.icns
 lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection68"Copy ./build/Debug/shapeInGrid.app/Contents/Resources/CinderApp.icnsbce9aa1332fcb541^e86aab1332fcb541^---0#0#0#-19%DVTDocumentLocation2@135"file://localhost/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/Debug/shapeInGrid.app/Contents/Resources/CinderApp.icns000000000080d041^441"CpResource CinderApp.icns ./build/Debug/shapeInGrid.app/Contents/Resources/CinderApp.icns    cd /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/CinderApp.icns /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/Debug/shapeInGrid.app/Contents/Resources36"218EB098-52D5-4B64-BA36-55BA840BDD64-
 
 CLd /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/Debug/shapeInGrid.app/Contents/MacOS/shapeInGrid normal i386
-s369661124.531792
-e369661124.853577
+s369662954.961620
+e369662955.351464
 r1
 xLd
 x/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/Debug/shapeInGrid.app/Contents/MacOS/shapeInGrid
 xnormal
 xi386
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection117"Link /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/Debug/shapeInGrid.app/Contents/MacOS/shapeInGrid0d3788c49408b641^ad84dac49408b641^---0#0#0#--1073"Ld ./build/Debug/shapeInGrid.app/Contents/MacOS/shapeInGrid normal i386    cd /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode    setenv MACOSX_DEPLOYMENT_TARGET 10.5    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -L/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/build/Debug -F/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/build/Debug -filelist /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/Objects-normal/i386/shapeInGrid.LinkFileList -mmacosx-version-min=10.5 ../../..//lib/libcinder_d.a -lcurl -framework Cocoa -framework OpenGL -framework Carbon -framework CoreVideo -framework QTKit -framework QuickTime -framework Accelerate -framework AudioToolbox -framework AudioUnit -framework CoreAudio -o /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/Debug/shapeInGrid.app/Contents/MacOS/shapeInGrid36"7BBE2E53-860A-4A01-AA86-5C93AFA20567-
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection117"Link /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/Debug/shapeInGrid.app/Contents/MacOS/shapeInGridea3cf6ea9b08b641^6efc59eb9b08b641^---0#0#0#--1073"Ld ./build/Debug/shapeInGrid.app/Contents/MacOS/shapeInGrid normal i386    cd /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode    setenv MACOSX_DEPLOYMENT_TARGET 10.5    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -L/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/build/Debug -F/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/build/Debug -filelist /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/Objects-normal/i386/shapeInGrid.LinkFileList -mmacosx-version-min=10.5 ../../..//lib/libcinder_d.a -lcurl -framework Cocoa -framework OpenGL -framework Carbon -framework CoreVideo -framework QTKit -framework QuickTime -framework Accelerate -framework AudioToolbox -framework AudioUnit -framework CoreAudio -o /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/Debug/shapeInGrid.app/Contents/MacOS/shapeInGrid36"52AC5811-A641-4678-BC3C-D944BEE1D986-
 
 CProcessInfoPlistFile /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/Debug/shapeInGrid.app/Contents/Info.plist Info.plist
 s368849427.656285
@@ -5727,10 +5727,10 @@ xcom.apple.compilers.llvm.clang.1_0.compiler
 lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection33"Precompile shapeInGrid_Prefix.pchab95ad1332fcb541^255ab21332fcb541^---0#0#0#-19%DVTDocumentLocation2@94"file://localhost/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/shapeInGrid_Prefix.pch0000000000000000^2891"ProcessPCH++ /var/folders/rx/5920lwf5777bzm51lrsn28900000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/shapeInGrid_Prefix-ayrhuvuurtdfhtcmbeiatcljfsso/shapeInGrid_Prefix.pch.pth shapeInGrid_Prefix.pch normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++-header -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-sign-compare -Wno-shorten-64-to-32 -Wno-newline-eof -Wc++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.5 -g -Wno-sign-conversion -iquote /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/shapeInGrid-generated-files.hmap -I/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/shapeInGrid-own-target-headers.hmap -I/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/shapeInGrid-all-target-headers.hmap -iquote /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/shapeInGrid-project-headers.hmap -iquote../../../include -iquote../include -I/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/build/Debug/include -I../../../boost -I/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/DerivedSources/i386 -I/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/shapeInGrid.build/Debug/shapeInGrid.build/DerivedSources -F/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/build/Debug --serialize-diagnostics /var/folders/rx/5920lwf5777bzm51lrsn28900000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/shapeInGrid_Prefix-ayrhuvuurtdfhtcmbeiatcljfsso/shapeInGrid_Prefix.pch.dia -c /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/shapeInGrid_Prefix.pch -o /var/folders/rx/5920lwf5777bzm51lrsn28900000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/shapeInGrid_Prefix-ayrhuvuurtdfhtcmbeiatcljfsso/shapeInGrid_Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/rx/5920lwf5777bzm51lrsn28900000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/shapeInGrid_Prefix-ayrhuvuurtdfhtcmbeiatcljfsso/shapeInGrid_Prefix.pch.d36"3809460E-6256-422D-A11A-87B73982A723-
 
 CTouch /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/Debug/shapeInGrid.app
-s369661124.861775
-e369661124.867049
+s369662955.359485
+e369662955.364715
 r1
 xTouch
 x/Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/Debug/shapeInGrid.app
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection91"Touch /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/Debug/shapeInGrid.app32aadcc49408b641^73f7ddc49408b641^---0#0#0#--207"Touch ./build/Debug/shapeInGrid.app    cd /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode    /usr/bin/touch -c /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/Debug/shapeInGrid.app36"F9F311A5-BB86-4B21-9D99-C902635F754A-
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection91"Touch /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/Debug/shapeInGrid.app7b125ceb9b08b641^74605deb9b08b641^---0#0#0#--207"Touch ./build/Debug/shapeInGrid.app    cd /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode    /usr/bin/touch -c /Users/synthresin/Desktop/cinder/apps/shapeInGrid/xcode/./build/Debug/shapeInGrid.app36"31633BB9-36A9-453E-9594-8A7B90152F7A-
 

@@ -47,6 +47,8 @@ class shapeInGridApp : public AppBasic {
     std::vector<Vec2f> mPoints3;
     std::vector<Vec2f> mPoints4;
     
+    Shape2d         mShape;
+    
     Vec2f           mMousePos;
     
     gl::Texture     currentTexture;
@@ -98,6 +100,10 @@ void shapeInGridApp::setup()
     mTex2 = renderSvgToTexture( mDoc2 );
     mTex3 = renderSvgToTexture( mDoc3 );
     mTex4 = renderSvgToTexture( mDoc4 );
+    
+    // SVG 도큐먼트에서 세이프 받기
+    
+    mShape = mDoc->getShape();
     
     printf("xsize : %f, ysize : %f" , mGridSizeX, mGridSizeY);
     //gl::clear(ColorA(0.85,0.92,0.88));
@@ -154,29 +160,9 @@ void shapeInGridApp::redraw()
             float xInit = mGridSizeX * xGrid;
             float yInit = mGridSizeY * yGrid;
             
-            Vec2f center = Vec2f(xInit + mGridSizeX /2 ,yInit + mGridSizeY / 2 );
+            Vec2f center = Vec2f(xInit  ,yInit );
             Vec2f dirVec = mMousePos - center;
             float angle = toDegrees(atan2(dirVec.y, dirVec.x)) + 90;
-            
-            PolyLine2f newPolyLine;
-            std::vector<Vec2f> tempPoints;
-            
-            
-            if(mTexVal[xGrid][yGrid] == 0) {
-                tempPoints = mPoints;
-            } else if(mTexVal[xGrid][yGrid] == 1) {
-                tempPoints = mPoints;
-            } else if(mTexVal[xGrid][yGrid] == 2) {
-                tempPoints = mPoints4;
-            } else if(mTexVal[xGrid][yGrid] == 3) {
-                tempPoints = mPoints4;
-            }
-            
-            for( vector<Vec2f>::iterator p = tempPoints.begin(); p != tempPoints.end(); p++ ){
-                Vec2f np = *p - Vec2f(mDoc->getWidth()/2, mDoc->getHeight()/2) + Vec2f(randInt(-5, 5),randInt(-5, 5));
-                newPolyLine.push_back(np);
-            }
-            
             
             
             gl::pushMatrices();
@@ -185,7 +171,7 @@ void shapeInGridApp::redraw()
             gl::scale(0.5, 0.5);
             gl::rotate(angle);
             gl::color(Color(0,0,0));
-            gl::drawSolid(newPolyLine);
+            gl::drawSolid(mShape);
             gl::popMatrices();
             
 //            if( mTex ) {
