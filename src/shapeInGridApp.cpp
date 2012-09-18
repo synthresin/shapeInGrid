@@ -55,6 +55,12 @@ class shapeInGridApp : public AppBasic {
     int mTexVal[GRID_NUM][GRID_NUM];
 };
 
+std::vector<Vec2f> getPointFromSVG( svg::DocRef doc )
+{
+    svg::Polygon *p = (svg::Polygon *)doc->getChildren().front();
+    return p->getPolyLine().getPoints();
+}
+
 gl::Texture renderSvgToTexture( svg::DocRef doc )
 {
     cairo::SurfaceImage srf(doc->getWidth(), doc->getHeight() , true);
@@ -69,31 +75,29 @@ void shapeInGridApp::setup()
 {
     setWindowSize(600, 600);
     gl::enableAlphaBlending();
+    
+    // SVG 도큐먼트 받아오기
     mDoc = svg::Doc::create( loadResource("logoFrag1.svg") );
     mDoc2 = svg::Doc::create( loadResource("logoFrag2.svg") );
     mDoc3 = svg::Doc::create( loadResource("logoFrag3.svg") );
     mDoc4 = svg::Doc::create( loadResource("logoFrag4.svg") );
     
-    svg::Polygon *p = (svg::Polygon *)mDoc->getChildren().front();
-    svg::Polygon *p2 = (svg::Polygon *)mDoc->getChildren().front();
-    svg::Polygon *p3 = (svg::Polygon *)mDoc->getChildren().front();
-    svg::Polygon *p4 = (svg::Polygon *)mDoc->getChildren().front();
     
+    // 각 폴리곤에서 포인트들을 받아오기
+    mPoints = getPointFromSVG(mDoc);
+    mPoints2 = getPointFromSVG(mDoc2);
+    mPoints3 = getPointFromSVG(mDoc3);
+    mPoints4 = getPointFromSVG(mDoc4);
     
-    mPoints = p->getPolyLine().getPoints();
-    mPoints2 = p2->getPolyLine().getPoints();
-    mPoints3 = p3->getPolyLine().getPoints();
-    mPoints4 = p4->getPolyLine().getPoints();
-
-    
+    // 그리 크기에 따라 그리드 사이즈 받기
     mGridSizeX = (float)getWindowWidth()/ GRID_NUM;
     mGridSizeY = (float)getWindowHeight()/ GRID_NUM;
 
+    // SVG 도큐먼트에서 텍스쳐 받기
     mTex = renderSvgToTexture( mDoc );
     mTex2 = renderSvgToTexture( mDoc2 );
     mTex3 = renderSvgToTexture( mDoc3 );
     mTex4 = renderSvgToTexture( mDoc4 );
-    
     
     printf("xsize : %f, ysize : %f" , mGridSizeX, mGridSizeY);
     //gl::clear(ColorA(0.85,0.92,0.88));
@@ -104,7 +108,9 @@ void shapeInGridApp::setup()
             mTexVal[xGrid][yGrid] = Rand::randInt(0, 4);
         }
     }
+    
 }
+
 
 void shapeInGridApp::mouseDown( MouseEvent event )
 {
@@ -154,38 +160,24 @@ void shapeInGridApp::redraw()
             
             PolyLine2f newPolyLine;
             std::vector<Vec2f> tempPoints;
-            svg::DocRef     tempDoc;
             
-                            switch (mTexVal[xGrid][yGrid]) {
-                                case 0:
-                                    tempPoints = mPoints;
-                                    tempDoc = mDoc;
-                                    break;
             
-                                case 1:
-                                    tempPoints = mPoints2;
-                                    tempDoc = mDoc2;
-                                    break;
-            
-                                case 2:
-                                    tempPoints = mPoints3;
-                                    tempDoc = mDoc3;
-                                    break;
-            
-                                case 3:
-                                    tempPoints = mPoints4;
-                                    tempDoc = mDoc4;
-                                    break;
-                                    
-                                default:
-                                    break;
-                            }
-            
+            if(mTexVal[xGrid][yGrid] == 0) {
+                tempPoints = mPoints;
+            } else if(mTexVal[xGrid][yGrid] == 1) {
+                tempPoints = mPoints;
+            } else if(mTexVal[xGrid][yGrid] == 2) {
+                tempPoints = mPoints4;
+            } else if(mTexVal[xGrid][yGrid] == 3) {
+                tempPoints = mPoints4;
+            }
             
             for( vector<Vec2f>::iterator p = tempPoints.begin(); p != tempPoints.end(); p++ ){
-                Vec2f np = *p - Vec2f(mDoc->getWidth()/2, mDoc->getHeight()/2) + Vec2f(randInt(0, 2),randInt(0, 2));
+                Vec2f np = *p - Vec2f(mDoc->getWidth()/2, mDoc->getHeight()/2) + Vec2f(randInt(-5, 5),randInt(-5, 5));
                 newPolyLine.push_back(np);
             }
+            
+            
             
             gl::pushMatrices();
             
