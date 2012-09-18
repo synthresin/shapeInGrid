@@ -37,30 +37,25 @@ class shapeInGridApp : public AppBasic {
     svg::DocRef     mDoc3;
     svg::DocRef     mDoc4;
     
-    gl::Texture     mTex;
-    gl::Texture     mTex2;
-    gl::Texture     mTex3;
-    gl::Texture     mTex4;
-    
-    std::vector<Vec2f> mPoints;
-    std::vector<Vec2f> mPoints2;
-    std::vector<Vec2f> mPoints3;
-    std::vector<Vec2f> mPoints4;
+
     
     Shape2d         mShape;
+    Shape2d         mShape2;
+    Shape2d         mShape3;
+    Shape2d         mShape4;
     
     Vec2f           mMousePos;
     
-    gl::Texture     currentTexture;
-    //
+    float           mMaxLengthSquared;
+    float           mMaxLength;
     
     int mTexVal[GRID_NUM][GRID_NUM];
 };
 
-std::vector<Vec2f> getPointFromSVG( svg::DocRef doc )
-{
-    svg::Polygon *p = (svg::Polygon *)doc->getChildren().front();
-    return p->getPolyLine().getPoints();
+Shape2d getCenteredShape2dfromSVGDoc(svg::DocRef doc) {
+    Shape2d s = doc->getShape();
+    s.transform( MatrixAffine2f::makeTranslate( -doc->getSize()/2 ) );
+    return s;
 }
 
 gl::Texture renderSvgToTexture( svg::DocRef doc )
@@ -84,26 +79,15 @@ void shapeInGridApp::setup()
     mDoc3 = svg::Doc::create( loadResource("logoFrag3.svg") );
     mDoc4 = svg::Doc::create( loadResource("logoFrag4.svg") );
     
-    
-    // 각 폴리곤에서 포인트들을 받아오기
-    mPoints = getPointFromSVG(mDoc);
-    mPoints2 = getPointFromSVG(mDoc2);
-    mPoints3 = getPointFromSVG(mDoc3);
-    mPoints4 = getPointFromSVG(mDoc4);
+    // SVG 도큐먼트에서 Shape 뽑아오기
+    mShape = getCenteredShape2dfromSVGDoc(mDoc);
+    mShape2 = getCenteredShape2dfromSVGDoc(mDoc2);
+    mShape3 = getCenteredShape2dfromSVGDoc(mDoc3);
+    mShape4 = getCenteredShape2dfromSVGDoc(mDoc4);
     
     // 그리 크기에 따라 그리드 사이즈 받기
     mGridSizeX = (float)getWindowWidth()/ GRID_NUM;
     mGridSizeY = (float)getWindowHeight()/ GRID_NUM;
-
-    // SVG 도큐먼트에서 텍스쳐 받기
-    mTex = renderSvgToTexture( mDoc );
-    mTex2 = renderSvgToTexture( mDoc2 );
-    mTex3 = renderSvgToTexture( mDoc3 );
-    mTex4 = renderSvgToTexture( mDoc4 );
-    
-    // SVG 도큐먼트에서 세이프 받기
-    
-    mShape = mDoc->getShape();
     
     printf("xsize : %f, ysize : %f" , mGridSizeX, mGridSizeY);
     //gl::clear(ColorA(0.85,0.92,0.88));
@@ -114,7 +98,8 @@ void shapeInGridApp::setup()
             mTexVal[xGrid][yGrid] = Rand::randInt(0, 4);
         }
     }
-    
+    mMaxLengthSquared = getWindowWidth() * getWindowWidth() + getWindowHeight() * getWindowHeight();
+    mMaxLength = sqrt(mMaxLengthSquared);
 }
 
 
@@ -135,11 +120,12 @@ void shapeInGridApp::mouseMove( MouseEvent event )
 
 void shapeInGridApp::update()
 {
-//    for(int yGrid = 0; yGrid < GRID_NUM; yGrid++) {
-//        for (int xGrid = 0; xGrid < GRID_NUM; xGrid++) {
-//        mTexVal[xGrid][yGrid] = Rand::randInt(0, 4);
-//        }
-//    }
+    if (mDraw)
+    for(int yGrid = 0; yGrid < GRID_NUM; yGrid++) {
+        for (int xGrid = 0; xGrid < GRID_NUM; xGrid++) {
+        mTexVal[xGrid][yGrid] = Rand::randInt(0, 4);
+        }
+    }
 }
 
 void shapeInGridApp::draw()
@@ -160,60 +146,34 @@ void shapeInGridApp::redraw()
             float xInit = mGridSizeX * xGrid;
             float yInit = mGridSizeY * yGrid;
             
-            Vec2f center = Vec2f(xInit  ,yInit );
+            Vec2f center = Vec2f(xInit + mGridSizeX/2  ,yInit + mGridSizeY/2);
             Vec2f dirVec = mMousePos - center;
             float angle = toDegrees(atan2(dirVec.y, dirVec.x)) + 90;
+            //float scale = lmap(dirVec.lengthSquared(), 0.0f, mMaxLengthSquared, 0.5f, 2.0f);
+            //float scale = lmap(dirVec.lengthSquared(), mMaxLengthSquared, 0.0f, 2.0f, 0.5f);
+            //float scale = lmap(sqrt(dirVec.lengthSquared()), mMaxLength, 0.0f, 1.5f, 0.5f);
+            float scale = lmap(sqrt(dirVec.lengthSquared()), mMaxLength, 0.0f, .0001f, 1.0f);
+
             
             
             gl::pushMatrices();
             
             gl::translate(center);
-            gl::scale(0.5, 0.5);
+            gl::scale(scale, scale);
             gl::rotate(angle);
             gl::color(Color(0,0,0));
-            gl::drawSolid(mShape);
+            if(mTexVal[xGrid][yGrid] == 0) {
+                gl::drawSolid(mShape);
+            } else if(mTexVal[xGrid][yGrid] == 1) {
+                gl::drawSolid(mShape2);
+            } else if(mTexVal[xGrid][yGrid] == 2) {
+                gl::drawSolid(mShape3);
+            } else if(mTexVal[xGrid][yGrid] == 3) {
+                gl::drawSolid(mShape4);
+            }
+            
             gl::popMatrices();
-            
-//            if( mTex ) {
-//                Vec2f center = Vec2f(xInit + mGridSizeX /2 ,yInit + mGridSizeY / 2 );
-//                
-//                Vec2f dirVec = mMousePos - center;
-//                
-//                float angle = toDegrees(atan2(dirVec.y, dirVec.x)) + 90;
-//                
-//                gl::color( Color::white() );
-//                gl::pushMatrices();
-//                
-//                gl::translate(center);
-//                gl::rotate(angle);
-//                
-//                
-//                switch (mTexVal[xGrid][yGrid]) {
-//                    case 0:
-//                        currentTexture = mTex;
-//                        break;
-//                        
-//                    case 1:
-//                        currentTexture = mTex2;
-//                        break;
-//                        
-//                    case 2:
-//                        currentTexture = mTex3;
-//                        break;
-//                        
-//                    case 3:
-//                        currentTexture = mTex4;
-//                        break;
-//                        
-//                    default:
-//                        break;
-//                }
-//                
-//                gl::draw( currentTexture , Rectf( Vec2f(-mGridSizeX/2, -mGridSizeY/2), Vec2f(mGridSizeX/2, mGridSizeY/2) ) );
-//                gl::popMatrices();
-//                
-//            }
-            
+                    
         }
     }
 }
